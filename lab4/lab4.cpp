@@ -2,19 +2,87 @@
 //
 
 #include <iostream>
+#include <sstream>
+#include <fstream>
 
-int main()
-{
-    std::cout << "Hello World!\n";
+using namespace std;
+
+int main() {
+    string s; 
+    ifstream file("file.txt", ios::out); 
+    ofstream file_result("file.txt", ios::app);
+    stringstream ss;
+
+    while (getline(file, s)) { 
+        cout << "Origin strings in file --> Changed text\n\n";
+        file_result << s;
+        cout << s; 
+        string a, b, c, t;
+        a = s;
+        int i = 0;
+        
+
+        t = a;
+        while (i < a.length()) {
+            if (!isalpha(a[i]))a[i] = ' ';
+            i++;
+        }
+        i = 0;
+        ss << a;
+        while (i < a.length()) {
+            if (a[i] == ' ') { b += a[i];i++; }
+            if (isalpha(a[i])) {
+                ss >> c;
+                c[0] = c[c.length() - 1];
+                b += c;
+            }
+            while (isalpha(a[i])) {
+                i++;
+            }
+        }
+        i = 0;
+        while (i < a.length()) {
+            if (isalpha(a[i]))t[i] = b[i];
+            i++;
+        }
+        a = t;
+        cout << " --> " << a << endl;
+        file_result << " --> " << a << " " << endl;
+        file.close();
+        file_result.close();
+    }
+
 }
 
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
 
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
+
+
+//string a, b, c, t;
+//int i = 0;
+//stringstream s;
+//
+//getline(cin, a);
+//t = a;
+//while (i < a.length()) {
+//    if (!isalpha(a[i]))a[i] = ' ';
+//    i++;
+//}
+//i = 0;
+//s << a;
+//while (i < a.length()) {
+//    if (a[i] == ' ') { b += a[i];i++; }
+//    if (isalpha(a[i])) {
+//        s >> c;
+//        swap(c[0], c[c.length() - 1]);
+//        b += c;
+//    }
+//    while (isalpha(a[i]))i++;
+//}
+//i = 0;
+//while (i < a.length()) {
+//    if (isalpha(a[i]))t[i] = b[i];
+//    i++;
+//}
+//a = t;
+//cout << a;
+//return 0;
