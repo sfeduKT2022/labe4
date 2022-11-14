@@ -53,36 +53,3 @@ int main() {
     }
 
 }
-
-
-
-
-//string a, b, c, t;
-//int i = 0;
-//stringstream s;
-//
-//getline(cin, a);
-//t = a;
-//while (i < a.length()) {
-//    if (!isalpha(a[i]))a[i] = ' ';
-//    i++;
-//}
-//i = 0;
-//s << a;
-//while (i < a.length()) {
-//    if (a[i] == ' ') { b += a[i];i++; }
-//    if (isalpha(a[i])) {
-//        s >> c;
-//        swap(c[0], c[c.length() - 1]);
-//        b += c;
-//    }
-//    while (isalpha(a[i]))i++;
-//}
-//i = 0;
-//while (i < a.length()) {
-//    if (isalpha(a[i]))t[i] = b[i];
-//    i++;
-//}
-//a = t;
-//cout << a;
-//return 0;
