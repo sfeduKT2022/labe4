@@ -32,7 +32,7 @@ int main() {
         while (i < a.length()) {
             if (a[i] == ' ') { b += a[i];i++; }
             if (isalpha(a[i])) {
-                ss >> c;
+                ss >>> c;
                 c[0] = c[c.length() - 1];
                 b += c;
             }
